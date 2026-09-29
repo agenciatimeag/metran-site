@@ -1,17 +1,13 @@
 {
   "name": "metran-site",
   "version": "1.0.0",
+  "private": true,
   "description": "Site e blog da Clínica Metran",
-  "scripts": {
-    "dev": "node dev.js"
-  },
+  "scripts": { "build": "node build.js" },
+  "engines": { "node": ">=20" },
   "dependencies": {
     "@vercel/blob": "^2.8.0",
-    "marked": "^18.0.14",
-    "sanitize-html": "^2.17.7"
-  },
-  "private": true,
-  "engines": {
-    "node": ">=20"
+    "adm-zip": "^0.5.16",
+    "sanitize-html": "^2.17.0"
   }
 }
