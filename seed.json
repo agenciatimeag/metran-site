@@ -1,0 +1,43 @@
+{
+  "posts": [
+    {
+      "id": "seed-exames",
+      "slug": "exames-ocupacionais-quais-sao-obrigatorios",
+      "title": "Exames ocupacionais: quais são obrigatórios e quando fazer cada um",
+      "excerpt": "Admissional, periódico, retorno ao trabalho, mudança de risco e demissional: o que a NR-07 exige e os prazos que o RH precisa acompanhar.",
+      "category": "Legislação",
+      "cover": "/assets/blog/svc1.webp",
+      "coverAlt": "Médica aferindo a pressão de um trabalhador durante exame ocupacional",
+      "author": "Equipe Metran",
+      "status": "published",
+      "date": "2026-09-10",
+      "content": "<p>Toda empresa com empregados registrados precisa fazer exames médicos ocupacionais. Eles estão previstos na <strong>NR-07</strong>, a norma que trata do PCMSO (Programa de Controle Médico de Saúde Ocupacional), e cada um tem um momento certo para acontecer. Ao final de cada exame, o médico emite o <strong>ASO</strong>, o Atestado de Saúde Ocupacional.</p>\n<h2>Os cinco exames da NR-07</h2>\n<h3>1. Admissional</h3>\n<p>Deve ser feito <strong>antes que o empregado assuma suas atividades</strong>. É ele que confirma que a pessoa está apta para a função e registra as condições de saúde no início do contrato.</p>\n<h3>2. Periódico</h3>\n<p>Acompanha a saúde do trabalhador ao longo do tempo. A periodicidade depende da exposição a riscos:</p>\n<ul><li>Para quem está exposto a riscos ocupacionais identificados no PGR, e para portadores de doenças crônicas, o exame é feito <strong>a cada ano</strong> ou em intervalos menores, a critério do médico responsável.</li><li>Para os demais empregados, <strong>a cada dois anos</strong>.</li></ul>\n<h3>3. Retorno ao trabalho</h3>\n<p>Obrigatório <strong>antes que o empregado reassuma suas funções</strong> após um afastamento igual ou superior a <strong>30 dias</strong> por doença ou acidente, de origem ocupacional ou não.</p>\n<h3>4. Mudança de risco ocupacional</h3>\n<p>Quando o trabalhador muda de função ou de setor e passa a ter uma exposição diferente, o exame deve ser feito <strong>antes da data da mudança</strong>.</p>\n<h3>5. Demissional</h3>\n<p>Deve ser realizado em até <strong>10 dias contados do término do contrato</strong>. Ele pode ser dispensado se o último exame ocupacional tiver sido feito há menos de <strong>135 dias</strong> (empresas de grau de risco 1 e 2) ou há menos de <strong>90 dias</strong> (grau de risco 3 e 4).</p>\n<blockquote>Quem define os exames complementares de cada função, como audiometria ou exames laboratoriais, é o PCMSO da empresa, com base nos riscos do PGR.</blockquote>\n<h2>O que acontece se a empresa não fizer</h2>\n<p>A falta dos exames pode gerar autuação na fiscalização do trabalho e inconsistências no eSocial, já que os resultados dos ASOs são informados no evento S-2220. Além disso, sem o histórico de saúde do trabalhador, a empresa fica mais exposta em discussões trabalhistas e previdenciárias.</p>\n<h2>Como a Metran ajuda</h2>\n<p>A Central de ASO da Metran organiza os exames da sua empresa, controla os vencimentos dos periódicos e envia as informações ao eSocial. Fale com a unidade mais próxima pelo WhatsApp e tire suas dúvidas.</p>"
+    },
+    {
+      "id": "seed-pgr",
+      "slug": "pgr-o-que-e-e-por-que-substituiu-o-ppra",
+      "title": "PGR: o que é e por que ele substituiu o PPRA",
+      "excerpt": "Desde 2022, o PGR é o documento base da gestão de riscos nas empresas. Entenda o que mudou em relação ao antigo PPRA e o que ele precisa ter.",
+      "category": "Segurança do trabalho",
+      "cover": "/assets/blog/svc3.webp",
+      "coverAlt": "Profissional de segurança preenchendo checklist de riscos em um tablet",
+      "author": "Equipe Metran",
+      "status": "published",
+      "date": "2026-09-18",
+      "content": "<p>O <strong>PGR (Programa de Gerenciamento de Riscos)</strong> passou a valer em <strong>3 de janeiro de 2022</strong>, com a nova redação da <strong>NR-01</strong>. Desde então, ele ocupa o lugar do antigo PPRA (Programa de Prevenção de Riscos Ambientais) como documento central da segurança do trabalho nas empresas.</p>\n<h2>O que mudou em relação ao PPRA</h2>\n<p>O PPRA tratava principalmente dos riscos ambientais: físicos, químicos e biológicos. O PGR é mais amplo e faz parte do chamado <strong>GRO, o Gerenciamento de Riscos Ocupacionais</strong>. Ele considera todos os riscos presentes no trabalho, incluindo os de acidentes e os ergonômicos.</p>\n<p>A lógica também mudou: em vez de um documento renovado uma vez por ano, o PGR funciona como uma gestão contínua, atualizada sempre que houver mudanças nos processos, nos ambientes ou após acidentes.</p>\n<h2>O que o PGR precisa ter</h2>\n<p>O programa é composto, no mínimo, por dois documentos:</p>\n<ul><li><strong>Inventário de riscos:</strong> identifica os perigos de cada atividade, avalia os riscos e classifica o nível de cada um.</li><li><strong>Plano de ação:</strong> define as medidas de prevenção, os responsáveis e o cronograma para controlar os riscos encontrados.</li></ul>\n<h2>Por que o PGR importa para o restante da empresa</h2>\n<p>O PGR é a base de outros programas e laudos. O <strong>PCMSO</strong> usa o inventário de riscos para definir os exames de cada função, e as informações de exposição alimentam o evento <strong>S-2240</strong> do eSocial. Um PGR bem feito deixa todo o resto coerente.</p>\n<blockquote>Microempresas e empresas de pequeno porte podem ter tratamento simplificado em algumas situações previstas na NR-01. Vale avaliar caso a caso com um profissional.</blockquote>\n<h2>Como a Metran ajuda</h2>\n<p>A equipe técnica da Metran elabora o PGR com visita ao ambiente de trabalho, monta o inventário de riscos e o plano de ação, e integra tudo ao PCMSO e ao eSocial da sua empresa.</p>"
+    },
+    {
+      "id": "seed-pcmso",
+      "slug": "pcmso-o-que-sua-empresa-precisa-saber",
+      "title": "PCMSO: o que a sua empresa precisa saber sobre o programa",
+      "excerpt": "O PCMSO define quais exames cada trabalhador faz e quando. Veja como ele funciona, quem é o responsável e como se conecta ao PGR.",
+      "category": "Saúde ocupacional",
+      "cover": "/assets/blog/svc2.webp",
+      "coverAlt": "Médico do trabalho preenchendo planilha de controle de exames",
+      "author": "Equipe Metran",
+      "status": "published",
+      "date": "2026-09-25",
+      "content": "<p>O <strong>PCMSO (Programa de Controle Médico de Saúde Ocupacional)</strong> é o programa previsto na <strong>NR-07</strong> que organiza o cuidado com a saúde dos trabalhadores dentro da empresa. É ele que define quais exames cada pessoa precisa fazer e com que frequência.</p>\n<h2>Para que serve o PCMSO</h2>\n<p>O objetivo é proteger e preservar a saúde dos empregados em relação aos riscos do trabalho. Na prática, o programa:</p>\n<ul><li>Define os exames clínicos e complementares de cada função;</li><li>Estabelece a periodicidade dos exames ocupacionais;</li><li>Acompanha a saúde dos trabalhadores ao longo do tempo, identificando alterações precocemente.</li></ul>\n<h2>Como ele se conecta ao PGR</h2>\n<p>O PCMSO é elaborado com base nos riscos identificados no <strong>PGR</strong>. Se o inventário de riscos aponta exposição a ruído em um setor, por exemplo, o PCMSO prevê a audiometria para quem trabalha ali. Por isso os dois programas precisam estar alinhados.</p>\n<h2>Quem é o responsável</h2>\n<p>O programa deve ter um <strong>médico responsável</strong>, que coordena as ações e acompanha os resultados. Esse médico também elabora o <strong>relatório analítico anual</strong>, com os dados dos exames realizados no período, que deve ser apresentado e discutido com os responsáveis pela segurança e saúde no trabalho da empresa.</p>\n<h2>Sinais de que o PCMSO da sua empresa precisa de atenção</h2>\n<ul><li>O documento não foi revisto após mudanças de setores, funções ou processos;</li><li>Os exames complementares não batem com os riscos do PGR;</li><li>Há exames periódicos vencidos ou sem controle de prazo;</li><li>O relatório analítico anual não é feito.</li></ul>\n<h2>Como a Metran ajuda</h2>\n<p>A Metran elabora e coordena o PCMSO da sua empresa, integrado ao PGR, controla a periodicidade dos exames pela Central de ASO e prepara o relatório analítico anual.</p>"
+    }
+  ]
+}
