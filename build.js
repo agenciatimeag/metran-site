@@ -19,8 +19,20 @@ const STATIC = path.join(OUT, 'static');
 fs.mkdirSync(STATIC, { recursive: true });
 for (const f of ['index.html', 'robots.txt', 'admin', 'assets']) cp(path.join(SRC, f), path.join(STATIC, f));
 
+// Telefones oficiais (unidades.json) aplicados na página inicial
+const UNI = path.join(ROOT, 'unidades.json');
+if (fs.existsSync(UNI)) {
+  const cfg = JSON.parse(fs.readFileSync(UNI, 'utf8'));
+  const idx = path.join(STATIC, 'index.html');
+  let html = fs.readFileSync(idx, 'utf8');
+  for (const [nome, c] of Object.entries(cfg.unidades || {})) {
+    const re = new RegExp("(\\{n:'" + nome.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + "',[^\\n]*?)p:'\\d+', pf:'[^']*'");
+    html = html.replace(re, (m, a) => a.replace(/ tel:'[^']*',/, '') + "p:'" + c.whatsapp + "', pf:'" + c.telefone + "'");
+  }
+  fs.writeFileSync(idx, html);
+}
+
 // Funções (uma pasta .func por rota da API)
-const RUNTIME_DEPS = ['@vercel/blob', 'sanitize-html'];
 for (const name of fs.readdirSync(path.join(SRC, 'api')).filter(f => f.endsWith('.js'))) {
   const fn = path.join(OUT, 'functions', 'api', name.replace(/\.js$/, '') + '.func');
   fs.mkdirSync(fn, { recursive: true });
@@ -30,7 +42,7 @@ for (const name of fs.readdirSync(path.join(SRC, 'api')).filter(f => f.endsWith(
   cp(path.join(ROOT, 'node_modules'), path.join(fn, 'node_modules'));
   fs.writeFileSync(path.join(fn, 'package.json'), JSON.stringify({ private: true, dependencies: {} }));
   fs.writeFileSync(path.join(fn, '.vc-config.json'), JSON.stringify({
-    runtime: 'nodejs20.x', handler: 'api/' + name, launcherType: 'Nodejs', shouldAddHelpers: true,
+    runtime: 'nodejs22.x', handler: 'api/' + name, launcherType: 'Nodejs', shouldAddHelpers: true,
   }, null, 2));
 }
 
