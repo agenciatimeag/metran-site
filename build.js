@@ -12,12 +12,32 @@ fs.rmSync(SRC, { recursive: true, force: true });
 fs.rmSync(OUT, { recursive: true, force: true });
 new AdmZip(path.join(ROOT, 'site.zip')).extractAllTo(SRC, true);
 
+// Arquivos de texto editáveis direto no GitHub (pasta web/, opcional) substituem os do site.zip
+const WEB = path.join(ROOT, 'web');
+if (fs.existsSync(WEB)) fs.cpSync(WEB, SRC, { recursive: true });
+
 const cp = (a, b) => fs.cpSync(a, b, { recursive: true });
 
 // Arquivos estáticos
 const STATIC = path.join(OUT, 'static');
 fs.mkdirSync(STATIC, { recursive: true });
-for (const f of ['index.html', 'robots.txt', 'admin', 'assets']) cp(path.join(SRC, f), path.join(STATIC, f));
+for (const f of ['index.html', 'robots.txt', 'llms.txt', 'admin', 'assets']) if (fs.existsSync(path.join(SRC, f))) cp(path.join(SRC, f), path.join(STATIC, f));
+
+// Desempenho: as imagens embutidas no index.html viram arquivos separados em /img,
+// com cache de 1 ano. A página fica ~15x menor e carrega muito mais rápido.
+{
+  const crypto = require('crypto');
+  const EXT = { 'image/webp': 'webp', 'image/png': 'png', 'image/svg+xml': 'svg', 'image/jpeg': 'jpg' };
+  const idx = path.join(STATIC, 'index.html');
+  fs.mkdirSync(path.join(STATIC, 'img'), { recursive: true });
+  const html = fs.readFileSync(idx, 'utf8').replace(/data:(image\/(?:webp|png|jpeg|svg\+xml));base64,([A-Za-z0-9+/=]+)/g, (uri, mime, b64) => {
+    const name = crypto.createHash('sha1').update(uri).digest('hex').slice(0, 12) + '.' + EXT[mime];
+    const file = path.join(STATIC, 'img', name);
+    if (!fs.existsSync(file)) fs.writeFileSync(file, Buffer.from(b64, 'base64'));
+    return '/img/' + name;
+  });
+  fs.writeFileSync(idx, html);
+}
 
 // Telefones oficiais (unidades.json) aplicados na página inicial
 const UNI = path.join(ROOT, 'unidades.json');
@@ -55,6 +75,7 @@ fs.writeFileSync(path.join(OUT, 'config.json'), JSON.stringify({
     { src: '^/blog/([^/]+)/?$', dest: '/api/blog?slug=$1' },
     { src: '^/sitemap\\.xml$', dest: '/api/blog?sitemap=1' },
     { src: '^/assets/(.*)$', headers: { 'Cache-Control': 'public, max-age=604800' }, continue: true },
+    { src: '^/img/(.*)$', headers: { 'Cache-Control': 'public, max-age=31536000, immutable' }, continue: true },
     { handle: 'filesystem' },
   ],
 }, null, 2));
