@@ -16,6 +16,24 @@ new AdmZip(path.join(ROOT, 'site.zip')).extractAllTo(SRC, true);
 const WEB = path.join(ROOT, 'web');
 if (fs.existsSync(WEB)) fs.cpSync(WEB, SRC, { recursive: true });
 
+// Alterações de texto da página inicial (web/index.patch.json), aplicadas sobre o index.html do site.zip.
+// O patch só é aplicado se o site.zip for exatamente a versão para a qual ele foi gerado.
+const PATCH = path.join(SRC, 'index.patch.json');
+if (fs.existsSync(PATCH)) {
+  const { base, hunks } = JSON.parse(fs.readFileSync(PATCH, 'utf8'));
+  const idx = path.join(SRC, 'index.html');
+  const html = fs.readFileSync(idx, 'utf8');
+  const sha = require('crypto').createHash('sha1').update(html).digest('hex');
+  if (sha === base) {
+    const lines = html.split('\n');
+    for (const [i1, i2, rep] of [...hunks].reverse()) lines.splice(i1, i2 - i1, ...rep);
+    fs.writeFileSync(idx, lines.join('\n'));
+    console.log('Patch da página inicial aplicado (' + hunks.length + ' trechos)');
+  } else {
+    console.log('Patch ignorado: o site.zip mudou desde que o patch foi gerado');
+  }
+}
+
 const cp = (a, b) => fs.cpSync(a, b, { recursive: true });
 
 // Arquivos estáticos
