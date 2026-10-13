@@ -1,0 +1,10 @@
+{
+  "_leia": "Telefones e WhatsApp oficiais de cada unidade. Edite aqui e salve: o site é atualizado na próxima publicação.",
+  "unidades": {
+    "Guarapari":        { "whatsapp": "5527998827801", "telefone": "(27) 99882-7801" },
+    "Guarapari Centro": { "whatsapp": "5527999277801", "telefone": "(27) 99927-7801" },
+    "Anchieta":         { "whatsapp": "5528999203164", "telefone": "(28) 99920-3164" },
+    "Viana":            { "whatsapp": "5527997151374", "telefone": "(27) 99715-1374" }
+  },
+  "centralAso": { "whatsapp": "5527995178929", "telefone": "(27) 99517-8929" }
+}
