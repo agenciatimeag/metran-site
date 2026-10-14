@@ -47,6 +47,7 @@
 "",
 "/* Título do topo com palavra-chave: 3 linhas no computador */",
 ".hero h1{max-width:18ch}",
+".hero-content{grid-template-columns:1fr}",
 "@media (max-width:640px){.hero h1{font-size:40px}}"
 ]
 ],
@@ -475,16 +476,9 @@
 ],
 [
 583,
-584,
+591,
 [
 "      <h1 class=\"rv\">Medicina e segurança do trabalho no <span class=\"serif\">Espírito Santo.</span></h1>"
-]
-],
-[
-585,
-586,
-[
-"        <p>A Clínica Metran cuida da saúde ocupacional e da segurança do trabalho da sua empresa: exames ocupacionais (ASO), PCMSO, PGR, laudos e eSocial, em 4 unidades em Guarapari, Anchieta e Viana.</p>"
 ]
 ],
 [
