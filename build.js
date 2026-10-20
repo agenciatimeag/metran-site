@@ -35,6 +35,7 @@ if (fs.existsSync(PATCH)) {
 }
 
 // Chat da Lemify em todas as páginas públicas (início, blog e artigos), no computador e no celular.
+// Fica no fim do <body>: o widget precisa que o body já exista quando roda.
 // O botão do WhatsApp sobe um pouco para não ficar por baixo do balão do chat.
 const LEMIFY = `<!-- Lemify WebChat Widget -->
 <script>
@@ -49,11 +50,11 @@ const LEMIFY = `<!-- Lemify WebChat Widget -->
 <!-- Fim Lemify WebChat Widget -->
 <style>.wa{bottom:100px!important}@media (max-width:640px){.wa{bottom:92px!important;right:16px!important;width:52px!important;height:52px!important}}</style>
 `;
-const withChat = html => html.includes('__LemifyWebchat') ? html : html.replace('</head>', LEMIFY + '</head>');
+const withChat = html => { if (html.includes('__LemifyWebchat')) return html; const i = html.lastIndexOf('</body>'); return html.slice(0, i) + LEMIFY + html.slice(i); };
 {
   const render = path.join(SRC, 'lib', 'render.js');
   const js = fs.readFileSync(render, 'utf8');
-  if (!js.includes('__LemifyWebchat')) fs.writeFileSync(render, js.replace('</head>', LEMIFY.replace(/[`$\\]/g, '\\$&') + '</head>'));
+  if (!js.includes('__LemifyWebchat')) fs.writeFileSync(render, js.replace('</body>', LEMIFY.replace(/[`$\\]/g, '\\$&') + '</body>'));
 }
 
 const cp = (a, b) => fs.cpSync(a, b, { recursive: true });
