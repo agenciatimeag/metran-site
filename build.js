@@ -34,6 +34,28 @@ if (fs.existsSync(PATCH)) {
   }
 }
 
+// Chat da Lemify em todas as páginas públicas (início, blog e artigos), no computador e no celular.
+// O botão do WhatsApp sobe um pouco para não ficar por baixo do balão do chat.
+const LEMIFY = `<!-- Lemify WebChat Widget -->
+<script>
+  (function(w,d,s,k){
+    w.__LemifyWebchat = { key: k, host: 'https://app.lemify.com.br' };
+    var f = d.createElement(s);
+    f.async = true;
+    f.src = 'https://app.lemify.com.br/public/widget.js';
+    d.head.appendChild(f);
+  })(window, document, 'script', '6cbacefb1cec92625112ae3d42a39293692a8c429b1da40c2053d3fb3dc13684');
+</script>
+<!-- Fim Lemify WebChat Widget -->
+<style>.wa{bottom:100px!important}@media (max-width:640px){.wa{bottom:92px!important;right:16px!important;width:52px!important;height:52px!important}}</style>
+`;
+const withChat = html => html.includes('__LemifyWebchat') ? html : html.replace('</head>', LEMIFY + '</head>');
+{
+  const render = path.join(SRC, 'lib', 'render.js');
+  const js = fs.readFileSync(render, 'utf8');
+  if (!js.includes('__LemifyWebchat')) fs.writeFileSync(render, js.replace('</head>', LEMIFY.replace(/[`$\\]/g, '\\$&') + '</head>'));
+}
+
 const cp = (a, b) => fs.cpSync(a, b, { recursive: true });
 
 // Arquivos estáticos
@@ -68,6 +90,12 @@ if (fs.existsSync(UNI)) {
     html = html.replace(re, (m, a) => a.replace(/ tel:'[^']*',/, '') + "p:'" + c.whatsapp + "', pf:'" + c.telefone + "'");
   }
   fs.writeFileSync(idx, html);
+}
+
+{
+  const idx = path.join(STATIC, 'index.html');
+  fs.writeFileSync(idx, withChat(fs.readFileSync(idx, 'utf8')));
+  console.log('Chat da Lemify incluído nas páginas');
 }
 
 // Funções (uma pasta .func por rota da API)
