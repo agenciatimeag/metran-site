@@ -99,6 +99,12 @@ if (fs.existsSync(UNI)) {
   console.log('Chat da Lemify incluído nas páginas');
 }
 
+// Endereço oficial do site: www.metran.med.br (metran.med.br redireciona para ele na Vercel)
+for (const f of ['index.html', 'robots.txt', 'llms.txt']) {
+  const file = path.join(STATIC, f);
+  if (fs.existsSync(file)) fs.writeFileSync(file, fs.readFileSync(file, 'utf8').split('https://metran.med.br').join('https://www.metran.med.br'));
+}
+
 // Funções (uma pasta .func por rota da API)
 for (const name of fs.readdirSync(path.join(SRC, 'api')).filter(f => f.endsWith('.js'))) {
   const fn = path.join(OUT, 'functions', 'api', name.replace(/\.js$/, '') + '.func');
