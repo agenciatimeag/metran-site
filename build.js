@@ -50,7 +50,13 @@ const LEMIFY = `<!-- Lemify WebChat Widget -->
 <!-- Fim Lemify WebChat Widget -->
 <style>.wa{bottom:100px!important}@media (max-width:640px){.wa{bottom:92px!important;right:16px!important;width:52px!important;height:52px!important}}</style>
 `;
-const withChat = html => { if (html.includes('__LemifyWebchat')) return html; const i = html.lastIndexOf('</body>'); return html.slice(0, i) + LEMIFY + html.slice(i); };
+const withChat = html => {
+  // Remove uma instalação antiga, mesmo que use outra chave.
+  html = html.replace(/<!-- Lemify WebChat Widget -->[\s\S]*?<!-- Fim Lemify WebChat Widget -->/g, '');
+  const i = html.lastIndexOf('</body>');
+  if (i < 0) throw new Error('Tag </body> não encontrada ao instalar Lemify');
+  return html.slice(0, i) + LEMIFY + html.slice(i);
+};
 {
   const render = path.join(SRC, 'lib', 'render.js');
   const js = fs.readFileSync(render, 'utf8');
