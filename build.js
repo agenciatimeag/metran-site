@@ -45,7 +45,7 @@ const LEMIFY = `<!-- Lemify WebChat Widget -->
     f.async = true;
     f.src = 'https://app.lemify.com.br/public/widget.js';
     d.head.appendChild(f);
-  })(window, document, 'script', '6cbacefb1cec92625112ae3d42a39293692a8c429b1da40c2053d3fb3dc13684');
+  })(window, document, 'script', '1d0ccbecffeac504d7922069ab07900888e6f96cbc25049d1cc5bb49d6c41d37');
 </script>
 <!-- Fim Lemify WebChat Widget -->
 <style>.wa{bottom:100px!important}@media (max-width:640px){.wa{bottom:92px!important;right:16px!important;width:52px!important;height:52px!important}}</style>
